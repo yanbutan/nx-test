@@ -1,0 +1,22 @@
+
+[2m> [22m[2mnx run[22m core-web-components:build
+
+vite v4.3.9 building for production...
+transforming...
+✓ 18 modules transformed.
+rendering chunks...
+computing gzip size...
+../../dist/packages/core-web-components/core-navbar.umd.js  18.22 kB │ gzip: 6.72 kB
+
+[vite:dts] Start generate declaration files...
+✓ built in 1.94s
+[vite:dts] Declaration files built in 1505ms.
+
+The project core-web-components is using the 'generatePackageJson' option which is deprecated for library projects. It should only be used for applications.
+For libraries, configure the project to use the '@nx/dependency-checks' ESLint rule instead (https://nx.dev/packages/eslint-plugin/documents/dependency-checks).
+
+ 
+
+ [32m>[39m [0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target build for project core-web-components[39m
+
+

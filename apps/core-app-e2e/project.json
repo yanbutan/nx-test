@@ -1,0 +1,29 @@
+{
+  "name": "core-app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/core-app-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/core-app-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "core-app:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "core-app:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/core-app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["core-app"]
+}
