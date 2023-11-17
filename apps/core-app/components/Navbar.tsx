@@ -1,6 +1,5 @@
-'use client'
-// import '@nx-test/core-web-components/navbar'
+import {Navbar as CoreNavbar} from "@nx-test/core-web-components"
 
 export default function Navbar(){
-    return <core-navbar></core-navbar>
+    return <CoreNavbar></CoreNavbar>
 }

@@ -1,2 +1,2 @@
-export * from './navbar';
-export * from './footer';
+// export * from './lib/core-web-components';
+export * from './navbar/navbar';

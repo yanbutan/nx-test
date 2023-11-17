@@ -15,25 +15,6 @@
             "options": {},
             "configurations": {}
           },
-          "build": {
-            "cache": true,
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production"
-            ],
-            "executor": "@nx/vite:build",
-            "outputs": [
-              "{options.outputPath}"
-            ],
-            "options": {
-              "outputPath": "dist/packages/core-web-components",
-              "generatePackageJson": true
-            },
-            "configurations": {}
-          },
           "lint": {
             "cache": true,
             "inputs": [
@@ -48,11 +29,36 @@
             ],
             "options": {
               "lintFilePatterns": [
-                "packages/core-web-components/**/*.ts",
-                "packages/core-web-components/package.json"
+                "packages/core-web-components/**/*.{ts,tsx,js,jsx}"
               ]
             },
             "configurations": {}
+          },
+          "build": {
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/vite:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "outputPath": "dist/packages/core-web-components"
+            },
+            "configurations": {
+              "development": {
+                "mode": "development"
+              },
+              "production": {
+                "mode": "production"
+              }
+            }
           },
           "test": {
             "cache": true,
@@ -293,9 +299,6 @@
           "serve": {
             "executor": "@nx/next:server",
             "defaultConfiguration": "development",
-            "dependsOn": [
-              "build-components"
-            ],
             "options": {
               "buildTarget": "core-app:build",
               "dev": true
@@ -310,13 +313,6 @@
                 "dev": false
               }
             }
-          },
-          "build-components": {
-            "executor": "nx:run-commands",
-            "options": {
-              "command": "nx build core-web-components"
-            },
-            "configurations": {}
           },
           "export": {
             "executor": "@nx/next:export",
@@ -1500,6 +1496,24 @@
         "version": "7.22.5",
         "packageName": "@babel/plugin-transform-react-jsx-development",
         "hash": "sha512-bDhuzwWMuInwCYeDeMzyi7TaBgRQei6DqxhbyniL7/VG4RSS7HtSL2QbY4eESy1KJqlWt8g3xeEBGPuo+XqC8A=="
+      }
+    },
+    "npm:@babel/plugin-transform-react-jsx-self": {
+      "type": "npm",
+      "name": "npm:@babel/plugin-transform-react-jsx-self",
+      "data": {
+        "version": "7.23.3",
+        "packageName": "@babel/plugin-transform-react-jsx-self",
+        "hash": "sha512-qXRvbeKDSfwnlJnanVRp0SfuWE5DQhwQr5xtLBzp56Wabyo+4CMosF6Kfp+eOD/4FYpql64XVJ2W0pVLlJZxOQ=="
+      }
+    },
+    "npm:@babel/plugin-transform-react-jsx-source": {
+      "type": "npm",
+      "name": "npm:@babel/plugin-transform-react-jsx-source",
+      "data": {
+        "version": "7.23.3",
+        "packageName": "@babel/plugin-transform-react-jsx-source",
+        "hash": "sha512-91RS0MDnAWDNvGC6Wio5XYkyWI39FMFO+JK9+4AlgaTH+yWwVTsw7/sn6LK0lH7c5F+TFkpv/3LfCJ1Ydwof/g=="
       }
     },
     "npm:@babel/plugin-transform-react-pure-annotations": {
@@ -4769,6 +4783,15 @@
         "hash": "sha512-07ny+LHRzQXepkGg6w0mFY41fVUNBrL2Roj/++7V1txKugfjm/Ci/qSND03r2RhlJhJYMcTn9AhhSSqQp0Ysyw=="
       }
     },
+    "npm:@vitejs/plugin-react": {
+      "type": "npm",
+      "name": "npm:@vitejs/plugin-react",
+      "data": {
+        "version": "4.0.4",
+        "packageName": "@vitejs/plugin-react",
+        "hash": "sha512-7wU921ABnNYkETiMaZy7XqpueMnpu5VxvVps13MjmCo+utBdD79sZzrApHawHtVX66cCJQQTXFcjH0y9dSUK8g=="
+      }
+    },
     "npm:@vitest/expect": {
       "type": "npm",
       "name": "npm:@vitest/expect",
@@ -6636,6 +6659,15 @@
       "type": "npm",
       "name": "npm:cssstyle",
       "data": {
+        "version": "3.0.0",
+        "packageName": "cssstyle",
+        "hash": "sha512-N4u2ABATi3Qplzf0hWbVCdjenim8F3ojEXpBDF5hBpjzW182MjNGLqfmQ0SkSPeQ+V86ZXgeH8aXj6kayd4jgg=="
+      }
+    },
+    "npm:cssstyle@2.3.0": {
+      "type": "npm",
+      "name": "npm:cssstyle@2.3.0",
+      "data": {
         "version": "2.3.0",
         "packageName": "cssstyle",
         "hash": "sha512-AZL67abkUzIuvcHqk7c09cezpGNcxUxU4Ioi/05xHk4DQeTkWmGYftIE6ctU6AEt+Gn4n1lDStOtj7FKycP71A=="
@@ -6707,6 +6739,15 @@
     "npm:data-urls": {
       "type": "npm",
       "name": "npm:data-urls",
+      "data": {
+        "version": "4.0.0",
+        "packageName": "data-urls",
+        "hash": "sha512-/mMTei/JXPqvFqQtfyTowxmJVwr2PVAeCcDxyFf6LhoOu/09TX2OX3kb2wzi4DMXcfj4OItwDOnhl5oziPnT6g=="
+      }
+    },
+    "npm:data-urls@3.0.2": {
+      "type": "npm",
+      "name": "npm:data-urls@3.0.2",
       "data": {
         "version": "3.0.2",
         "packageName": "data-urls",
@@ -8981,6 +9022,78 @@
         "hash": "sha512-k9iQbsf9OyOfdzWH8HDmrRT0gSIcX+FLNW7IQq94tFX0gynPwqDTW0Ho6iMVNjGz/nb+l/vW3dWM2bbLLpkbXA=="
       }
     },
+    "npm:jsdom@20.0.3": {
+      "type": "npm",
+      "name": "npm:jsdom@20.0.3",
+      "data": {
+        "version": "20.0.3",
+        "packageName": "jsdom",
+        "hash": "sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ=="
+      }
+    },
+    "npm:jsdom": {
+      "type": "npm",
+      "name": "npm:jsdom",
+      "data": {
+        "version": "22.1.0",
+        "packageName": "jsdom",
+        "hash": "sha512-/9AVW7xNbsBv6GfWho4TTNjEo9fe6Zhf9O7s0Fhhr3u+awPwAJMKwAMXnkk5vBxflqLW9hTHX/0cs+P3gW+cQw=="
+      }
+    },
+    "npm:tr46@3.0.0": {
+      "type": "npm",
+      "name": "npm:tr46@3.0.0",
+      "data": {
+        "version": "3.0.0",
+        "packageName": "tr46",
+        "hash": "sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA=="
+      }
+    },
+    "npm:tr46@0.0.3": {
+      "type": "npm",
+      "name": "npm:tr46@0.0.3",
+      "data": {
+        "version": "0.0.3",
+        "packageName": "tr46",
+        "hash": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw=="
+      }
+    },
+    "npm:tr46": {
+      "type": "npm",
+      "name": "npm:tr46",
+      "data": {
+        "version": "4.1.1",
+        "packageName": "tr46",
+        "hash": "sha512-2lv/66T7e5yNyhAAC4NaKe5nVavzuGJQVVtRYLyQ2OI8tsJ61PMLlelehb0wi2Hx6+hT/OJUWZcw8MjlSRnxvw=="
+      }
+    },
+    "npm:whatwg-url@11.0.0": {
+      "type": "npm",
+      "name": "npm:whatwg-url@11.0.0",
+      "data": {
+        "version": "11.0.0",
+        "packageName": "whatwg-url",
+        "hash": "sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ=="
+      }
+    },
+    "npm:whatwg-url@5.0.0": {
+      "type": "npm",
+      "name": "npm:whatwg-url@5.0.0",
+      "data": {
+        "version": "5.0.0",
+        "packageName": "whatwg-url",
+        "hash": "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw=="
+      }
+    },
+    "npm:whatwg-url": {
+      "type": "npm",
+      "name": "npm:whatwg-url",
+      "data": {
+        "version": "12.0.1",
+        "packageName": "whatwg-url",
+        "hash": "sha512-Ed/LrqB8EPlGxjS+TrsXcpUond1mhccS3pchLhzSgPCnTimUCKj3IZE75pAs5m6heB2U2TMerKFUXheyHY+VDQ=="
+      }
+    },
     "npm:jest-environment-node": {
       "type": "npm",
       "name": "npm:jest-environment-node",
@@ -9195,15 +9308,6 @@
         "version": "0.1.1",
         "packageName": "jsbn",
         "hash": "sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg=="
-      }
-    },
-    "npm:jsdom": {
-      "type": "npm",
-      "name": "npm:jsdom",
-      "data": {
-        "version": "20.0.3",
-        "packageName": "jsdom",
-        "hash": "sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ=="
       }
     },
     "npm:jsesc": {
@@ -9845,24 +9949,6 @@
         "hash": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A=="
       }
     },
-    "npm:tr46@0.0.3": {
-      "type": "npm",
-      "name": "npm:tr46@0.0.3",
-      "data": {
-        "version": "0.0.3",
-        "packageName": "tr46",
-        "hash": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw=="
-      }
-    },
-    "npm:tr46": {
-      "type": "npm",
-      "name": "npm:tr46",
-      "data": {
-        "version": "3.0.0",
-        "packageName": "tr46",
-        "hash": "sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA=="
-      }
-    },
     "npm:webidl-conversions@3.0.1": {
       "type": "npm",
       "name": "npm:webidl-conversions@3.0.1",
@@ -9879,24 +9965,6 @@
         "version": "7.0.0",
         "packageName": "webidl-conversions",
         "hash": "sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g=="
-      }
-    },
-    "npm:whatwg-url@5.0.0": {
-      "type": "npm",
-      "name": "npm:whatwg-url@5.0.0",
-      "data": {
-        "version": "5.0.0",
-        "packageName": "whatwg-url",
-        "hash": "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw=="
-      }
-    },
-    "npm:whatwg-url": {
-      "type": "npm",
-      "name": "npm:whatwg-url",
-      "data": {
-        "version": "11.0.0",
-        "packageName": "whatwg-url",
-        "hash": "sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ=="
       }
     },
     "npm:node-int64": {
@@ -10727,6 +10795,24 @@
         "hash": "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="
       }
     },
+    "npm:preact": {
+      "type": "npm",
+      "name": "npm:preact",
+      "data": {
+        "version": "10.19.2",
+        "packageName": "preact",
+        "hash": "sha512-UA9DX/OJwv6YwP9Vn7Ti/vF80XL+YA5H2l7BpCtUr3ya8LWHFzpiO5R+N7dN16ujpIxhekRFuOOF82bXX7K/lg=="
+      }
+    },
+    "npm:preact-custom-element": {
+      "type": "npm",
+      "name": "npm:preact-custom-element",
+      "data": {
+        "version": "4.3.0",
+        "packageName": "preact-custom-element",
+        "hash": "sha512-5hG7nQhU4e7RNfCEQklaUqYQiiyibLuJ2wbhR+E2v1m8m9NDsJok5MykW/Nx0YLLBcXr8xnkap6DwByGy2TzDA=="
+      }
+    },
     "npm:prelude-ls": {
       "type": "npm",
       "name": "npm:prelude-ls",
@@ -10905,6 +10991,15 @@
         "version": "18.2.0",
         "packageName": "react-dom",
         "hash": "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
+      }
+    },
+    "npm:react-refresh": {
+      "type": "npm",
+      "name": "npm:react-refresh",
+      "data": {
+        "version": "0.14.0",
+        "packageName": "react-refresh",
+        "hash": "sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ=="
       }
     },
     "npm:readable-stream": {
@@ -11157,6 +11252,15 @@
         "version": "2.8.2",
         "packageName": "rollup-pluginutils",
         "hash": "sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ=="
+      }
+    },
+    "npm:rrweb-cssom": {
+      "type": "npm",
+      "name": "npm:rrweb-cssom",
+      "data": {
+        "version": "0.6.0",
+        "packageName": "rrweb-cssom",
+        "hash": "sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw=="
       }
     },
     "npm:run-parallel": {
@@ -12496,12 +12600,27 @@
     "core-web-components": [
       {
         "source": "core-web-components",
-        "target": "npm:lit",
+        "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "core-web-components",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "core-web-components",
+        "target": "npm:preact-custom-element",
         "type": "static"
       },
       {
         "source": "core-web-components",
         "target": "npm:vite",
+        "type": "static"
+      },
+      {
+        "source": "core-web-components",
+        "target": "npm:@vitejs/plugin-react",
         "type": "static"
       },
       {
@@ -12553,7 +12672,17 @@
       },
       {
         "source": "core-app",
+        "target": "core-web-components",
+        "type": "static"
+      },
+      {
+        "source": "core-app",
         "target": "npm:@nx/next",
+        "type": "static"
+      },
+      {
+        "source": "core-app",
+        "target": "npm:react",
         "type": "static"
       }
     ],
@@ -14197,6 +14326,30 @@
       {
         "source": "npm:@babel/plugin-transform-react-jsx-development",
         "target": "npm:@babel/plugin-transform-react-jsx",
+        "type": "static"
+      }
+    ],
+    "npm:@babel/plugin-transform-react-jsx-self": [
+      {
+        "source": "npm:@babel/plugin-transform-react-jsx-self",
+        "target": "npm:@babel/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@babel/plugin-transform-react-jsx-self",
+        "target": "npm:@babel/helper-plugin-utils",
+        "type": "static"
+      }
+    ],
+    "npm:@babel/plugin-transform-react-jsx-source": [
+      {
+        "source": "npm:@babel/plugin-transform-react-jsx-source",
+        "target": "npm:@babel/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@babel/plugin-transform-react-jsx-source",
+        "target": "npm:@babel/helper-plugin-utils",
         "type": "static"
       }
     ],
@@ -18930,6 +19083,33 @@
         "type": "static"
       }
     ],
+    "npm:@vitejs/plugin-react": [
+      {
+        "source": "npm:@vitejs/plugin-react",
+        "target": "npm:vite",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vitejs/plugin-react",
+        "target": "npm:@babel/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vitejs/plugin-react",
+        "target": "npm:@babel/plugin-transform-react-jsx-self",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vitejs/plugin-react",
+        "target": "npm:@babel/plugin-transform-react-jsx-source",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vitejs/plugin-react",
+        "target": "npm:react-refresh",
+        "type": "static"
+      }
+    ],
     "npm:@vitest/expect": [
       {
         "source": "npm:@vitest/expect",
@@ -20781,7 +20961,7 @@
     "npm:cssstyle": [
       {
         "source": "npm:cssstyle",
-        "target": "npm:cssom@0.3.8",
+        "target": "npm:rrweb-cssom",
         "type": "static"
       }
     ],
@@ -24191,7 +24371,182 @@
       },
       {
         "source": "npm:jest-environment-jsdom",
-        "target": "npm:jsdom",
+        "target": "npm:jsdom@20.0.3",
+        "type": "static"
+      }
+    ],
+    "npm:cssstyle@2.3.0": [
+      {
+        "source": "npm:cssstyle@2.3.0",
+        "target": "npm:cssom@0.3.8",
+        "type": "static"
+      }
+    ],
+    "npm:data-urls@3.0.2": [
+      {
+        "source": "npm:data-urls@3.0.2",
+        "target": "npm:abab",
+        "type": "static"
+      },
+      {
+        "source": "npm:data-urls@3.0.2",
+        "target": "npm:whatwg-mimetype",
+        "type": "static"
+      },
+      {
+        "source": "npm:data-urls@3.0.2",
+        "target": "npm:whatwg-url@11.0.0",
+        "type": "static"
+      }
+    ],
+    "npm:jsdom@20.0.3": [
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:abab",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:acorn",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:acorn-globals",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:cssom",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:cssstyle@2.3.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:data-urls@3.0.2",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:decimal.js",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:domexception",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:escodegen",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:form-data",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:html-encoding-sniffer",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:http-proxy-agent",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:https-proxy-agent",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:is-potential-custom-element-name",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:nwsapi",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:parse5",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:saxes",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:symbol-tree",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:tough-cookie",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:w3c-xmlserializer",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:webidl-conversions",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:whatwg-encoding",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:whatwg-mimetype",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:whatwg-url@11.0.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:ws",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom@20.0.3",
+        "target": "npm:xml-name-validator",
+        "type": "static"
+      }
+    ],
+    "npm:tr46@3.0.0": [
+      {
+        "source": "npm:tr46@3.0.0",
+        "target": "npm:punycode",
+        "type": "static"
+      }
+    ],
+    "npm:whatwg-url@11.0.0": [
+      {
+        "source": "npm:whatwg-url@11.0.0",
+        "target": "npm:tr46@3.0.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:whatwg-url@11.0.0",
+        "target": "npm:webidl-conversions",
         "type": "static"
       }
     ],
@@ -24924,21 +25279,6 @@
       },
       {
         "source": "npm:jsdom",
-        "target": "npm:acorn",
-        "type": "static"
-      },
-      {
-        "source": "npm:jsdom",
-        "target": "npm:acorn-globals",
-        "type": "static"
-      },
-      {
-        "source": "npm:jsdom",
-        "target": "npm:cssom",
-        "type": "static"
-      },
-      {
-        "source": "npm:jsdom",
         "target": "npm:cssstyle",
         "type": "static"
       },
@@ -24955,11 +25295,6 @@
       {
         "source": "npm:jsdom",
         "target": "npm:domexception",
-        "type": "static"
-      },
-      {
-        "source": "npm:jsdom",
-        "target": "npm:escodegen",
         "type": "static"
       },
       {
@@ -24995,6 +25330,11 @@
       {
         "source": "npm:jsdom",
         "target": "npm:parse5",
+        "type": "static"
+      },
+      {
+        "source": "npm:jsdom",
+        "target": "npm:rrweb-cssom",
         "type": "static"
       },
       {
@@ -26847,6 +27187,13 @@
       {
         "source": "npm:postcss-unique-selectors",
         "target": "npm:postcss-selector-parser",
+        "type": "static"
+      }
+    ],
+    "npm:preact-custom-element": [
+      {
+        "source": "npm:preact-custom-element",
+        "target": "npm:preact",
         "type": "static"
       }
     ],

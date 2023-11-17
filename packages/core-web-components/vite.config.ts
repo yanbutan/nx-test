@@ -1,5 +1,6 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import * as path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
@@ -8,6 +9,7 @@ export default defineConfig({
   cacheDir: '../../node_modules/.vite/core-web-components',
 
   plugins: [
+    react(),
     nxViteTsPaths(),
     dts({
       entryRoot: 'src',
@@ -26,16 +28,16 @@ export default defineConfig({
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/navbar/index.ts',
-      name: 'core-navbar',
-      fileName: 'core-navbar',
+      entry: 'src/index.ts',
+      name: 'core-web-components',
+      fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
-      formats: ['umd']
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: [],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
   },
 });

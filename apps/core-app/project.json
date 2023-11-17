@@ -28,7 +28,6 @@
     "serve": {
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
-      "dependsOn": ["build-components"],
       "options": {
         "buildTarget": "core-app:build",
         "dev": true
@@ -43,9 +42,6 @@
           "dev": false
         }
       }
-    },
-    "build-components": {
-      "command": "nx build core-web-components"
     },
     "export": {
       "executor": "@nx/next:export",

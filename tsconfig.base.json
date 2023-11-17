@@ -19,11 +19,8 @@
       "@nx-test/core-ui-components": [
         "packages/core-ui-components/src/index.ts"
       ],
-      "@nx-test/core-web-components/footer": [
-        "packages/core-web-components/src/footer/index.ts"
-      ],
-      "@nx-test/core-web-components/navbar": [
-        "packages/core-web-components/src/navbar/index.ts"
+      "@nx-test/core-web-components": [
+        "packages/core-web-components/src/index.ts"
       ]
     }
   },

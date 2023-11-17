@@ -1,4 +1,4 @@
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import styles from './page.module.css';
 export default async function Index() {
@@ -449,7 +449,7 @@ export default async function Index() {
         </div>
       </div>
     </div>
-    <Footer></Footer>
+    {/* <Footer></Footer> */}
     </>
   );
 }
